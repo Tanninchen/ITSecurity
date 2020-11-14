@@ -23,5 +23,21 @@ sudo update-ca-certificates
 ### Zertifikat für eine /Sub)Domain erstellen
 
 1. privater Schlüssel und ein CSR erstellt.
+ -> Konfigurationsdatei mit notwendigen Daten erstellen.
+ openssl req -new -sha256 -nodes \    
+            -out test.example.csr \    
+            -newkey rsa:2048 -keyout test.example.key \    
+            -config test.example.csr.cnf
+Server-Zertifikat erstellen -> weitere Konfigurationsdatei erstellt 
+
 2. aus dem CSR wird mit Hilfe des Stammzertifikates ein Zertifikat für die Domäne erstellt
 3. dieses Zertifikat kann anschließend zb im Web Server konfiguriert werden.
+
+### Apache Webserver für https konfigurieren
+apache WebServer neu starteen
+Zertifikat erstellen
+/etc/apache2/sites-available/default-ssl.conf -> editieren und Zertifikate einfügen
+
+SSLCertificateFile /etc/apache2/ssl/apache.crtSSLCertificateKeyFile /etc/apache2/ssl/apache.key
+
+sudo a2ensite default-ssl.conf
