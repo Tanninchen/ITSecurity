@@ -33,11 +33,11 @@ Server-Zertifikat erstellen -> weitere Konfigurationsdatei erstellt
 2. aus dem CSR wird mit Hilfe des Stammzertifikates ein Zertifikat für die Domäne erstellt
 3. dieses Zertifikat kann anschließend zb im Web Server konfiguriert werden.
 
+
 ### Apache Webserver für https konfigurieren
-apache WebServer neu starteen
+apache WebServer neu starten
 Zertifikat erstellen
-/etc/apache2/sites-available/default-ssl.conf -> editieren und Zertifikate einfügen
+/etc/apache2/sites-available/default-ssl.conf 
+-> Virtuelen Host anlegen , editieren und Zertifikate einfügen
 
-SSLCertificateFile /etc/apache2/ssl/apache.crtSSLCertificateKeyFile /etc/apache2/ssl/apache.key
-
-sudo a2ensite default-ssl.conf
+chainFIle anlegen ->
